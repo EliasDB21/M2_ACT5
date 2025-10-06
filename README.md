@@ -113,28 +113,6 @@ Each file below is the **authoritative source** for the corresponding image used
 
 ---
 
-## Make the images visible in GitHub
-
-Keep EPS as your sources and create PNG or SVG for embedding:
-
-**ImageMagick to PNG**
-```bash
-# macOS: brew install imagemagick ghostscript
-# Ubuntu/Debian: sudo apt-get install imagemagick ghostscript
-
-magick mogrify -density 300 -format png images/*.eps
-# Produces: images/fig1.png, images/fig2.png, …
-```
-
-**Inkscape to SVG**
-```bash
-inkscape images/fig1.eps --export-type=svg --export-filename=images/fig1.svg
-```
-
-After conversion you can embed, for example: `![Fig. 1 — Role × Gender](images/fig1.png)`.
-
----
-
 ## Reproducible mini‑examples
 
 The intent of the examples is to help you **reuse** the figures with your own cohorts or datasets while keeping the same analytical questions.
