@@ -2,25 +2,27 @@
 
 This repository accompanies an applied study with **59 participants** (students and professionals, mostly from **non‑computing** backgrounds). It introduces concrete, classroom‑ready materials that help educators and learners **incorporate visualization and generative AI tools into educational practice**. The emphasis here is practical: a curated gallery of figures (source files in EPS) and short, reproducible examples that show how to use them in lessons, workshops, or self‑study.
 
+Throughout this README, we use the term **non‑computing backgrounds** to refer to participants without formal training in computer science or software engineering.
+
 The study compares three approaches to complete the same analytics tasks:
 - **Approach 1 — Traditional**: Python with standard packages such as pandas, seaborn, and scikit‑learn.
 - **Approach 2 — ChatGPT**: conversational assistance to generate and revise code.
 - **Approach 3 — LIDA + GPT**: programmatic orchestration that summarizes data, proposes goals, and generates visualizations.
 
-Across participants, ChatGPT was perceived as the **easiest** and **fastest** to use. LIDA+GPT was perceived as the **most appropriate** for the analytical goals and the **most correct** in the produced outputs. The traditional approach remained effective but required more time and manual integration, especially for non‑computing audiences.
+Across settings, participants rated ChatGPT highest on **ease** and **speed**, and LIDA+GPT highest on **appropriateness** and **correctness**. These results support our central aim: to **introduce innovative, classroom‑ready ways to incorporate visualization and GenAI into educational practice**, balancing rapid iteration with rigor so that learners master both the pipeline and the judgment required to use AI responsibly.
 
 ---
 
 ## Project Overview
 
-This project, based on two comprehensive studies, explores the use of advanced Large Language Models (LLMs) and visualization tools to enhance data analytics learning for students and professionals from non-computational backgrounds. The methodologies and outcomes described herein underscore the significant benefits of integrating cutting-edge AI technologies such as based on Generative AI (GenAI) into educational practices to foster a deeper understanding and more efficient execution of data-related projects.
+This project, grounded in two complementary studies, demonstrates how advanced Large Language Models (LLMs) and visualization tools can improve data‑analytics learning for students and professionals from **non‑computing** backgrounds. We provide concrete methods and outcomes showing how **Generative AI (GenAI)**—from chat‑based assistance to API‑driven orchestration—helps learners build end‑to‑end pipelines faster **while preserving appropriateness and correctness**. The materials in this repository are classroom‑ready and designed to be reused, adapted, and extended in lessons, workshops, and self‑study.
 
 ### Project Objectives
 
-- Promote a comprehensive understanding of data-based project pipelines.
-- Enhance programming and other computational thinking-related skills through interactive AI assistance.
+- Promote a comprehensive understanding of data‑based project pipelines.
+- Enhance programming and other computational thinking‑related skills through interactive AI assistance.
 - Enable wider adoption of GenAI tools in educational contexts.
-- Improve the efficiency and effectiveness of data-related project development.
+- Improve the efficiency and effectiveness of data‑related project development.
 
 ### Who this is for
 
@@ -77,7 +79,7 @@ Each file below is the **authoritative source** for the corresponding image used
   *Use:* discuss cohort composition and why role matters for tool adoption.
 
 - `images/fig2.eps` — Number of participants by **affiliation** (bar).  
-  *Use:* motivate why visual scaffolding and GenAI reduce entry barriers for non‑computing fields.
+  *Use:* motivate visual scaffolding and GenAI prompts that lower entry barriers for non‑computing cohorts.
 
 - `images/fig3.eps` — Number of participants by **age range** (bar).  
   *Use:* connect age distributions with prior exposure to notebooks and APIs.
@@ -95,7 +97,7 @@ Each file below is the **authoritative source** for the corresponding image used
   *Use:* illustrate intersectional patterns and how they inform pacing and scaffolding.
 
 - `images/fig13.eps` — **Time required to finish activities** by approach and role (stacked bars).  
-  *Use:* analyze time distributions and debate speed versus understanding.
+  *Use:* analyze time distributions and debate trade‑offs between speed and understanding; connect results to assessment rubrics.
 
 - `images/fig14.eps` — **GenAI experience** (four pies: general ChatGPT use, use for programming, use for analytics, and use of generative APIs).  
   *Use:* introduce API‑based orchestration and why it differs from chat‑only workflows.
@@ -155,6 +157,8 @@ plt.show()
 ```
 
 **What to discuss:** Why business and social sciences dominate in many classrooms and how this influences the design of prompts and scaffolds.
+
+> Tip: if your CSV stores categorical labels with inconsistent capitalization or trailing spaces, normalize them before counting (e.g., `df["Affiliation"] = df["Affiliation"].str.strip().str.title()`).
 
 ### B) Replicate `fig13.eps` (Time to finish) by approach and role
 ```python
@@ -224,15 +228,15 @@ for (role, metric), row in pivot.iterrows():
 
 ## Teaching ideas and prompts
 
-**1) Ten-minute briefing (read the room, set expectations).**  
-Use `fig1.eps`–`fig3.eps` to discuss roles, affiliations, and age ranges. Link these distributions to prior exposure (e.g., notebooks vs. APIs) and likely scaffolding needs. State an explicit learning goal: complete a compact pipeline—from *business understanding* to *data understanding* and *initial evaluation*—while comparing three workflows (Traditional, ChatGPT, LIDA+GPT).
+**1) Ten-minute briefing (read the room, set expectations)**  
+Use `fig1.eps`–`fig3.eps` to discuss roles, affiliations, and age ranges. Link these distributions to prior exposure (e.g., notebooks vs. APIs) and likely scaffolding needs. State an explicit learning goal: Complete a compact pipeline from *business understanding* to *data understanding* and *initial evaluation* while comparing three workflows (Traditional, ChatGPT, LIDA+GPT).
 
-**2) Three hands-on segments that build on each other (not isolated).**
+**2) Three hands-on segments that build on each other**
 
 - **Traditional segment (pipeline foundations).**  
-  Each team produces a minimal yet complete EDA: (a) a tidy missing-values table, (b) at least one well-labeled distribution per key variable, and (c) a comparative chart that answers a concrete question. Require a brief note under every figure that explains how it answers the stated question. Capture elapsed time for later reflection (to be compared with `fig13.eps`).
+  Each team produces a minimal yet complete EDA: (a) A tidy missing-values table, (b) At least one well-labeled distribution per key variable, and (c) A comparative chart that answers a concrete question. Require a brief note under every figure that explains how it answers the stated question. Capture elapsed time for later reflection (to be compared with `fig13.eps`).
 
-- **ChatGPT segment (computational thinking with interactive AI).**  
+- **ChatGPT segment (computational thinking with interactive AI)**  
   Shift from code recall to reasoning about design choices. Students should request runnable code, explanations, and a quick test—and verify outputs locally. Use a high-leverage, auditable prompt:
   ```
   Act as my pair programmer. Given CSV <X>, propose a minimal EDA that answers <question>.
@@ -241,7 +245,7 @@ Use `fig1.eps`–`fig3.eps` to discuss roles, affiliations, and age ranges. Link
   ```
   Require students to annotate the generated code with what they kept, what they changed, and why.
 
-- **LIDA+GPT segment (orchestrated analytics with human curation).**  
+- **LIDA+GPT segment**  
   Move from ad-hoc prompting to a structured workflow: summary → candidate goals → visualization specs. Then apply *human curation* (titles, axes, ordering, annotations) to align outputs with the learning objective.
   ```
   Given dataset <X> and objective <Y>, produce:
@@ -252,13 +256,10 @@ Use `fig1.eps`–`fig3.eps` to discuss roles, affiliations, and age ranges. Link
   ```
   Provide a short curation checklist: “Does the title answer the question? Are axes readable? Is ordering meaningful? Is there an annotation that states the main finding?”
 
-**3) Structured reflection (evidence-based).**  
-Use `fig16-2.eps` and `fig17-2.eps` to interpret why **ease** and **speed** often favor ChatGPT, while **appropriateness** and **correctness** tend to favor LIDA+GPT across roles and genders. Reproduce `fig13.eps` with your own timing logs to compare distributions by approach and role. Conclude with an exit ticket:
+**3) Structured reflection**  
+Use `fig16-2.eps` and `fig17-2.eps` to interpret why **ease** and **speed** often favor ChatGPT, while **appropriateness** and **correctness** tend to favor LIDA+GPT across roles and genders. Reproduce `fig13.eps` with your own timing logs to compare distributions by approach and role. Conclude with an exit conclusion:
 - *One practice I will keep for efficiency is…*  
 - *One safeguard I will add for correctness is…*
-
-This closes the loop back to the project goals: pipeline mastery (what to do and in what order), interactive AI skills (how to think with and audit suggestions), responsible GenAI adoption (matching tools to tasks and audiences), and demonstrable gains in efficiency and effectiveness.
-
 
 ---
 
@@ -272,8 +273,6 @@ If you generate `figX.png` or `figX.svg`, keep the **same base names** as the EP
 ## License and citation
 
 The article and figures are released under **Creative Commons BY 4.0** (reuse with attribution).
-
-### Citation
 
 When referencing this project, please use the following citation formats:
 
