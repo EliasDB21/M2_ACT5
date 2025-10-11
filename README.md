@@ -27,9 +27,7 @@ This project, grounded in two complementary studies, demonstrates how advanced L
 ### Who this is for
 
 - **Instructors** who want to integrate visual analytics and GenAI in their courses with evidence‑based, ready‑to‑use artifacts.
-- **Students and professionals** who want to experience three workflows for the same project and reflect on trade‑offs.
-- **Training teams** that need concrete materials for hands‑on sessions and quick wins.
-
+- **Students and professionals** who want to experience three workflows for the same project and reflect the differences of classic programming and AI-assisted programming
 ---
 
 ## What is inside
@@ -37,8 +35,6 @@ This project, grounded in two complementary studies, demonstrates how advanced L
 - `Data_processing.ipynb`: the main notebook used to process survey responses and generate figures.
 - `materials/`: supporting documents (for example, the open‑access article and the conference presentation).
 - `images/`: the **figure sources** in **EPS** exactly as used in the study and teaching materials.
-
-> GitHub does not render EPS inline. Keep the EPS files as sources and generate PNG or SVG with the same base names to embed the images in Markdown or slides.
 
 ---
 
@@ -72,8 +68,6 @@ The notebook will generate or update figures under `images/`. Keep the `.eps` as
 ---
 
 ## Figure map (repository file names and how to use them)
-
-Each file below is the **authoritative source** for the corresponding image used in the paper and slides. Create `figX.png` or `figX.svg` next to the EPS to embed it in Markdown.
 
 - `images/fig1.eps` — Number of participants by **current role and gender** (bar).  
   *Use:* discuss cohort composition and why role matters for tool adoption.
@@ -244,8 +238,6 @@ Use `fig16-2.eps` and `fig17-2.eps` to interpret why **ease** and **speed** ofte
 ## Contributing
 
 Pull requests and issues with classroom examples, datasets, or evaluation rubrics are welcome.  
-If you generate `figX.png` or `figX.svg`, keep the **same base names** as the EPS so the README and slides remain consistent.
-
 ---
 
 ## License and citation
